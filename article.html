@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>NextBit — Article</title>
+  <link rel="stylesheet" href="home.css">
+</head>
+<body>
+  <nav class="main-nav">
+    <div class="nav-inner">
+      <a href="home.html" class="logo">NextBit</a>
+      <div class="nav-links">
+        <a href="home.html">Home</a>
+        <a href="home.html#news">News</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </div>
+      <a href="home.html" class="btn btn-primary">Subscribe</a>
+    </div>
+  </nav>
+  <section class="article-page" style="padding: 60px 40px; background: #050505; min-height: 100vh; color: #fff;">
+    <a href="home.html" style="color:#ffa500; font-weight:700; text-decoration:none;">← Back to News</a>
+    <div style="max-width: 900px; margin: 24px auto;">
+      <h1 id="articleTitle"></h1>
+      <p id="articleMeta" style="color:#ccc; margin-bottom: 20px;"></p>
+      <img id="articleImage" src="" alt="Article image" style="width:100%; max-height:420px; object-fit:cover; border-radius: 10px; margin-bottom: 18px;" />
+      <p id="articleBody"></p>
+      <p id="articleSource" style="color:#999;"></p>
+    </div>
+  </section>
+
+  <script>
+    const newsItems = [
+      { category: 'Tech', title: 'AI and Edge Computing Drive Next-gen Chips', summary: 'Major suppliers now ship orbit-ready processors with low power draw.', body: 'As the world moves toward edge intelligence, chipmakers are increasing investments in low-energy, high-bandwidth inference cores. Expert sources say this will reshape mobile, automotive, and industrial innovation cycles.', source: 'NextBit News', timestamp: '3h ago', image: '2.jpg' },
+      { category: 'Business', title: 'Global Cybersecurity Funding Pivots in Q2', summary: 'New regulations and disclosures trigger rapid capital flows into security platforms.', body: 'Enterprises are now treating digital defense as a revenue priority. Analysts project spending growth of 18% year-over-year, with startups focused on automation lead generation seeing the biggest interest.', source: 'NextBit News', timestamp: '5h ago', image: '1.jpg' },
+      { category: 'World', title: 'Satellite Internet Expansion Nears Major Milestone', summary: 'New orbital infrastructure offers access to remote regions for the first time.', body: 'With the latest constellation launch, service companies report stable connectivity in regions previously without broadband. Humanitarian and educational programs are the earliest beneficiaries.', source: 'NextBit News', timestamp: '1d ago', image: '4.jpg' },
+      { category: 'Science', title: 'Quantum Networks: Beyond the Lab', summary: 'Researchers built a prototype link between two cities using entangled photons.', body: 'The trial demonstrated reliable, low-latency encryption capability. Stakeholders suggest early rollouts into defense and finance could happen within 3-4 years.', source: 'NextBit News', timestamp: '2d ago', image: '3.jpg' }
+    ];
+
+    const params = new URLSearchParams(window.location.search);
+    const id = Number(params.get('id'));
+    const article = Number.isFinite(id) && newsItems[id] ? newsItems[id] : null;
+
+    const titleNode = document.getElementById('articleTitle');
+    const metaNode = document.getElementById('articleMeta');
+    const bodyNode = document.getElementById('articleBody');
+    const sourceNode = document.getElementById('articleSource');
+    const imageNode = document.getElementById('articleImage');
+
+    if (!article) {
+      titleNode.textContent = 'Article not found';
+      metaNode.textContent = 'Please return to the news feed and select a valid item.';
+      bodyNode.textContent = '';
+      imageNode.style.display = 'none';
+      sourceNode.textContent = '';
+    } else {
+      titleNode.textContent = article.title;
+      metaNode.textContent = `${article.category} • ${article.timestamp}`;
+      bodyNode.textContent = article.body;
+      sourceNode.textContent = `Source: ${article.source}`;
+      imageNode.src = article.image;
+      imageNode.alt = article.title;
+    }
+  </script>
+</body>
+</html>

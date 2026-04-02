@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NextBit — Stay Ahead in Technology</title>
+  <link rel="icon" type="image/svg+xml" href="nextbit.svg">
+  <link rel="stylesheet" href="home.css">
+</head>
+<body>
+
+  <!-- Navigation (updated with Insights) -->
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="logo">
+      <img src="nextbit.svg" alt="NextBit Logo">
+      <span>NextBit</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#news">Latest News</a></li>
+      <li><a href="#insights">Insights</a></li>
+      <li><a href="#">Topics</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn btn-secondary" id="subscribeBtn">Subscribe</button>
+      <button class="btn btn-primary" id="signinBtn">Sign In</button>
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+    </div>
+  </div>
+</nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-background">
+      <div class="bg1"></div>
+      <div class="bg2"></div>
+    </div>
+    
+    <div class="hero-content">
+      <div class="persuasive-text">
+        <h1 class="intro-title">
+          Discover the Latest <span class="highlight">ICT Innovations</span><br>
+          with NextBit
+        </h1>
+        
+        <p class="intro-description">
+          Stay at the cutting edge of technology. Whether you're a tech enthusiast, 
+          business leader, or curious mind, NextBit delivers deep insights, breaking news, 
+          and expert analysis to help you thrive in the digital age.
+        </p>
+
+        <div class="button-group">
+          <button class="btn btn-primary" id="enterBtn">Sign In</button>
+          <button class="btn btn-secondary" id="subscribeHeroBtn">Subscribe for Free</button>
+        </div>
+
+        <div class="stats-container">
+          <div class="stat">
+            <div class="stat-number">10+</div>
+            <div class="stat-label">Expert Journalists</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">15K+</div>
+            <div class="stat-label">Monthly Readers</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">4.9</div>
+            <div class="stat-label">Average Rating</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section">
+    <div class="section-header">
+      <h2>Why Readers Trust NextBit</h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <h3>Privacy & Discretion</h3>
+        <p>Complete confidentiality. We never sell your data or compromise your reading experience.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⏰</div>
+        <h3>Punctuality Guaranteed</h3>
+        <p>Breaking stories delivered as they happen. Real-time updates you can count on.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⭐</div>
+        <h3>5-Star Journalism</h3>
+        <p>Impeccably researched stories by experienced technology journalists.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- News Section -->
+  <section class="news-section" id="news">
+    <div class="news-container">
+      <header class="news-header">
+        <h2>Latest News Flow</h2>
+        <p>Explore the most important stories in technology, business, science, and the world.</p>
+      </header>
+
+      <div class="news-controls">
+        <input id="newsSearch" type="search" placeholder="Search news..." aria-label="Search news">
+        
+        <div class="news-tags" role="tablist">
+          <button class="tag active" data-category="All">All</button>
+          <button class="tag" data-category="Tech">Tech</button>
+          <button class="tag" data-category="Business">Business</button>
+          <button class="tag" data-category="World">World</button>
+          <button class="tag" data-category="Science">Science</button>
+        </div>
+      </div>
+
+      <div id="newsFeed" class="news-feed"></div>
+    </div>
+
+    <!-- NEW: Insights Section -->
+<section class="insights-section" id="insights">
+  <div class="section-container">
+    <div class="section-header">
+      <h2>Deep Insights & Analysis</h2>
+      <p>Expert breakdowns, trend reports, and forward-looking analysis from the world of ICT</p>
+    </div>
+
+    <div id="insightsGrid" class="insights-grid"></div>
+  </div>
+</section>
+
+      <!-- Insights Modal -->
+   <aside id="insightModal" class="article-modal" aria-hidden="true">
+  <div class="modal-content">
+    <button id="insightModalClose" class="close-btn">×</button>
+    <span id="insightCategory" class="insight-category"></span>
+    <h3 id="insightTitle"></h3>
+    <p class="meta" id="insightMeta"></p>
+    
+    <div class="modal-image">
+      <img id="insightImage" alt="">
+    </div>
+    
+    <div id="insightBody" class="insight-body"></div>
+    
+    <div class="insight-footer">
+      <span id="insightReadTime"></span>
+      <a id="insightReadFull" class="btn btn-primary" href="#">Read Full Report →</a>
+    </div>
+  </div>
+</aside>
+
+    <!-- Article Modal -->
+    <aside id="articleModal" class="article-modal" aria-hidden="true">
+      <div class="modal-content">
+        <button id="modalClose" class="close-btn" aria-label="Close">×</button>
+        <h3 id="modalTitle"></h3>
+        <p class="meta" id="modalMeta"></p>
+        <div class="modal-image">
+          <img id="modalImage" alt="">
+        </div>
+        <p id="modalBody"></p>
+        <a id="modalReadFull" class="btn btn-primary" href="#" target="_blank">Read Full Article →</a>
+        
+        <div id="modalRelated" class="related-stories">
+          <h4>Related Stories</h4>
+          <div id="relatedContainer"></div>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2026 NextBit. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">About Us</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="home.js"></script>
+</body>
+</html>

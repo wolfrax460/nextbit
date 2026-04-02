@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title> NextBit</title>
+    <link rel="icon" type="image/svg+xml" href="nextbit.svg">
+
+    <link rel="stylesheet" href="nextbit1.css">
+</head>
+<body>
+    <div class="bg" aria-hidden="true"></div>
+    <div class="overlay" aria-hidden="true"></div>
+    <main class="container" role="main">
+        <section class="card" role="region" aria-label="Welcome">
+            <div class="logo" aria-hidden="true"><img src="nextbit.svg" alt="NextBit logo"></div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h1>Welcome to NextBit</h1>
+            <p>In ever-evolving world of increasing technology, —Nextbit we're at top to keep you informed 
+                and updated. <br>
+                We're dedicated to serve you better in just one click!!</p>
+            <a href="home.html" class="enter" id="enterBtn">Discover more with us!</a>
+        </section>
+    </main>
+    <script>
+        (function(){
+            var btn = document.getElementById('enterBtn');
+            btn.addEventListener('click', function(e){
+                e.preventDefault();
+                btn.textContent = 'Welcome!';
+                btn.setAttribute('aria-disabled','true');
+                setTimeout(function(){
+                    // Replace the destination below with your app's landing page
+                    window.location.href = 'home.html';
+                },600);
+            });
+        })();
+    </script>
+</body>
+</html>
+</html>
